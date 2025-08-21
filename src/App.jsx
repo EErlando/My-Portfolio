@@ -673,7 +673,7 @@ function Contact() {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/My-Portfolio">
       <nav className="bg-white sticky top-0 z-50 flex justify-between items-center px-8 py-5 shadow">
         <span className="text-2xl font-extrabold tracking-tight text-gray-900">
           MACIEJ WOJTKOWIAK
