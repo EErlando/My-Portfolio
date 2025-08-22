@@ -59,7 +59,7 @@ function Home() {
       />
 
       {/* Overlay: set opacity in `overlay` variable */}
-      <div className={`absolute inset-0 z-5 pointer-events-none ${overlay}`} />
+      <div className={`absolute inset-0 z-[5] pointer-events-none ${overlay}`} />
 
       {/* Hero text content */}
       <div className="relative z-20 flex flex-col items-center justify-center w-full px-4 py-28">
@@ -530,7 +530,7 @@ function MWSynergy() {
             {gallery.video ? (
               <LimitedLoopVideo
                 src={gallery.video}
-                poster="/images/mwsynergy_project.jpg"
+                poster={gallery.poster} 
                 maxLoops={1}
                 fadeMs={600}
                 className="w-full h-[46vh] md:h-[60vh] rounded-xl overflow-hidden shadow-md"
