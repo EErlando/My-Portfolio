@@ -664,7 +664,7 @@ function Contact() {
             <img src={asset("/images/IT.png")} alt="Installation Technology logo" className="h-14 w-auto object-contain" />
           </a>
           <a href="https://www.saswireless.com/" target="_blank" rel="noopener noreferrer">
-            <img src={asset("/images/SAS.png"0)} alt="SAS Wireless logo" className="h-14 w-auto object-contain" />
+            <img src={asset("/images/SAS.png")} alt="SAS Wireless logo" className="h-14 w-auto object-contain" />
           </a>
           <a href="https://tfl.gov.uk/" target="_blank" rel="noopener noreferrer">
             <img src={asset("/images/TFL.png")} alt="TfL logo" className="h-12 w-auto object-contain" />
