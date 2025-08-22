@@ -2,6 +2,10 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 
 
+// App.jsx (top of file)
+const asset = (p) => new URL(p, import.meta.env.BASE_URL).href;
+
+
 function Home() {
   const [showImage, setShowImage] = useState(false);
   const videoRef = useRef();
