@@ -28,7 +28,7 @@ function Home() {
     <section className="relative min-h-[80vh] w-full flex items-center justify-center overflow-hidden">
       {/* Background image: fades in when showImage is true */}
       <img
-        src="/images/Home.jpg"
+        src={asset('images/Home.jpg')}
         alt="Background"
         className="absolute inset-0 w-full h-full object-cover"
         style={{
@@ -42,7 +42,7 @@ function Home() {
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
-        src="/videos/Home.mp4"
+        src={asset('videos/Home.mp4')}
         autoPlay
         muted
         playsInline
@@ -655,19 +655,19 @@ function Contact() {
         {/* Logos centered below line */}
         <div className="flex flex-row gap-10 md:gap-14 items-center justify-center overflow-x-auto pb-2">
           <a href="https://boldyn.com" target="_blank" rel="noopener noreferrer">
-            <img src="/images/BDN.png" alt="Boldyn Networks logo" className="h-16 w-auto object-contain" />
+            <img src={asset('images/BDN.png')} alt="Boldyn Networks logo" className="h-16 w-auto object-contain" />
           </a>
           <a href="https://www.dtcomms.co.uk/" target="_blank" rel="noopener noreferrer">
-            <img src="/images/DT.png" alt="Data Tech logo" className="h-14 w-auto object-contain" />
+            <img src={asset("/images/DT.png")} alt="Data Tech logo" className="h-14 w-auto object-contain" />
           </a>
           <a href="https://www.installationtechnology.com/" target="_blank" rel="noopener noreferrer">
-            <img src="/images/IT.png" alt="Installation Technology logo" className="h-14 w-auto object-contain" />
+            <img src={asset("/images/IT.png")} alt="Installation Technology logo" className="h-14 w-auto object-contain" />
           </a>
           <a href="https://www.saswireless.com/" target="_blank" rel="noopener noreferrer">
-            <img src="/images/SAS.png" alt="SAS Wireless logo" className="h-14 w-auto object-contain" />
+            <img src={asset("/images/SAS.png"0)} alt="SAS Wireless logo" className="h-14 w-auto object-contain" />
           </a>
           <a href="https://tfl.gov.uk/" target="_blank" rel="noopener noreferrer">
-            <img src="/images/TFL.png" alt="TfL logo" className="h-12 w-auto object-contain" />
+            <img src={asset("/images/TFL.png")} alt="TfL logo" className="h-12 w-auto object-contain" />
           </a>
         </div>
       </div>
