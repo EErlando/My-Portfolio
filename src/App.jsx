@@ -197,7 +197,7 @@ function Projects() {
       desc: "Built LLM/NLP workflows for the PRA to detect risk in bank earnings calls. Automated topic modeling, sentiment analysis, and LLM-powered summaries for regulatory supervisors.",
       colorLeft: "bg-[#e5ebf3]",
       colorRight: "bg-[#f5f7fa]",
-      image: "/images/boe_project.jpg", // put your real image in public/images/
+      image: asset('images/boe_project.jpg'), // put your real image in public/images/
       link: "https://github.com/EErlando/Quarterly-Bytes/blob/main/README.md"
     },
     {
@@ -206,8 +206,8 @@ function Projects() {
       desc: "Point cloud modeling and digital visualization for major city infrastructure. Supporting high-speed internet and 4G/5G rollout for TfL.",
       colorLeft: "bg-[#e6f3ec]",
       colorRight: "bg-[#f3f7f5]",
-      image: "/images/mwsynergy_project.jpg",
-      video: "/videos/mwsynergy_project.mp4", // <-- add this (put the file in public/videos/)
+      image: asset('images/mwsynergy_project.jpg'),
+      video: asset('videos/mwsynergy_project.mp4'), // <-- add this (put the file in public/videos/)
       link: "https://www.installationtechnology.com/case-studies/boldyn-networks"
     },
     // Add more projects...
@@ -389,8 +389,8 @@ function MWSynergy() {
   const hero = {
     title: "MW Synergy",
     subtitle: "Digital Engineering for a Smarter World",
-    video: "/videos/mwsynergy_hero.mp4",      // optional
-    poster: "/images/mwsynergy_hero.jpg",     // fallback / first frame
+    video: asset('videos/mwsynergy_hero.mp4'),      // optional
+    poster: asset('images/mwsynergy_hero.jpg'),     // fallback / first frame
   };
 
   const overview = {
@@ -427,8 +427,8 @@ function MWSynergy() {
   ];
 
   const gallery = {
-    video: "/videos/mwsynergy_project.mp4",   // optional media block
-    poster: "/images/mwsynergy_project.jpg",
+    video: asset('videos/mwsynergy_project.mp4'),   // optional media block
+    poster: asset('images/mwsynergy_project.jpg'),
     caption: "Tunnel section visualisation used for stakeholder reviews.",
   };
 
@@ -529,7 +529,7 @@ function MWSynergy() {
           <div className="relative rounded-xl overflow-hidden">
             {gallery.video ? (
               <LimitedLoopVideo
-                src="/videos/mwsynergy_project.mp4"
+                src={gallery.video}
                 poster="/images/mwsynergy_project.jpg"
                 maxLoops={1}
                 fadeMs={600}
@@ -658,16 +658,16 @@ function Contact() {
             <img src={asset('images/BDN.png')} alt="Boldyn Networks logo" className="h-16 w-auto object-contain" />
           </a>
           <a href="https://www.dtcomms.co.uk/" target="_blank" rel="noopener noreferrer">
-            <img src={asset("/images/DT.png")} alt="Data Tech logo" className="h-14 w-auto object-contain" />
+            <img src={asset('images/DT.png')} alt="Data Tech logo" className="h-14 w-auto object-contain" />
           </a>
           <a href="https://www.installationtechnology.com/" target="_blank" rel="noopener noreferrer">
-            <img src={asset("/images/IT.png")} alt="Installation Technology logo" className="h-14 w-auto object-contain" />
+            <img src={asset('images/IT.png')} alt="Installation Technology logo" className="h-14 w-auto object-contain" />
           </a>
           <a href="https://www.saswireless.com/" target="_blank" rel="noopener noreferrer">
-            <img src={asset("/images/SAS.png")} alt="SAS Wireless logo" className="h-14 w-auto object-contain" />
+            <img src={asset('images/SAS.png')} alt="SAS Wireless logo" className="h-14 w-auto object-contain" />
           </a>
           <a href="https://tfl.gov.uk/" target="_blank" rel="noopener noreferrer">
-            <img src={asset("/images/TFL.png")} alt="TfL logo" className="h-12 w-auto object-contain" />
+            <img src={asset('images/TFL.png')} alt="TfL logo" className="h-12 w-auto object-contain" />
           </a>
         </div>
       </div>
