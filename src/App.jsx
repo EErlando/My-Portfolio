@@ -1,10 +1,14 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 
 
-// App.jsx (top of file)
-const asset = (p) => new URL(p, import.meta.env.BASE_URL).href;
 
+// Builds absolute URLs that work in dev, preview, and GH Pages
+const asset = (p) => {
+  const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+  const path = String(p).replace(/^\//, '');
+  return `${window.location.origin}${base}/${path}`;
+};
 
 function Home() {
   const [showImage, setShowImage] = useState(false);
@@ -20,7 +24,7 @@ function Home() {
   }, []);
 
   // ---- Adjust these ----
-  const overlay = "bg-black bg-opacity-40"; // Overlay for both video and image
+  const overlay = "bg-black bg-opacity-10"; // Overlay for both video and image
   const fadeDuration = 4000; // ms (1.2s)
   // -----------------------
 
@@ -677,7 +681,7 @@ function Contact() {
 
 function App() {
   return (
-    <Router basename="/My-Portfolio">
+    <Router>
       <nav className="bg-white sticky top-0 z-50 flex justify-between items-center px-8 py-5 shadow">
         <span className="text-2xl font-extrabold tracking-tight text-gray-900">
           MACIEJ WOJTKOWIAK
