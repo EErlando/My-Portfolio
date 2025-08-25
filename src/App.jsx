@@ -46,7 +46,7 @@ function Home() {
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
-        src={asset('videos/Home.mov')}
+        src={asset('videos/Home_video.mp4')}
         autoPlay
         muted
         playsInline
@@ -211,7 +211,7 @@ function Projects() {
       colorLeft: "bg-[#e6f3ec]",
       colorRight: "bg-[#f3f7f5]",
       image: asset('images/mwsynergy_project.jpg'),
-      video: asset('videos/mwsynergy_project.mov'), // <-- add this (put the file in public/videos/)
+      video: asset('videos/mwsynergy_project.mp4'), // <-- add this (put the file in public/videos/)
       link: "https://www.installationtechnology.com/case-studies/boldyn-networks"
     },
     // Add more projects...
