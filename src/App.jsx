@@ -393,7 +393,7 @@ function MWSynergy() {
   const hero = {
     title: "MW Synergy",
     subtitle: "Digital Engineering for a Smarter World",
-    video: asset('videos/mwsynergy_hero.mov'),      // optional
+    // video: asset('videos/mwsynergy_hero.mov'),      // optional
     poster: asset('images/mwsynergy_hero.jpg'),     // fallback / first frame
   };
 
