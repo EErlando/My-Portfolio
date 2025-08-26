@@ -46,7 +46,8 @@ function Home() {
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
-        src={asset('videos/Home_video_web.mp4')}
+        src="https://res.cloudinary.com/dcxcqzuyo/video/upload/v1756216482/Home_video_web_qgcuqq.mp4"
+        //src={asset('videos/Home_video_web.mp4')}
         autoPlay
         muted
         playsInline
@@ -211,7 +212,8 @@ function Projects() {
       colorLeft: "bg-[#e6f3ec]",
       colorRight: "bg-[#f3f7f5]",
       image: asset('images/mwsynergy_project.jpg'),
-      video: asset('videos/mwsynergy_project_web.mp4'), // <-- add this (put the file in public/videos/)
+      //video: asset('videos/mwsynergy_project_web.mp4'), // <-- add this (put the file in public/videos/)
+      video: "https://res.cloudinary.com/dcxcqzuyo/video/upload/v1756219227/mwsynergy_project_web_fozmap.mp4", // <-- add this (link to cloudinary)
       link: "https://www.installationtechnology.com/case-studies/boldyn-networks"
     },
     // Add more projects...
@@ -431,7 +433,7 @@ function MWSynergy() {
   ];
 
   const gallery = {
-    video: asset('videos/mwsynergy_project_web.mp4'),   // optional media block
+    video: "https://res.cloudinary.com/dcxcqzuyo/video/upload/v1756219227/mwsynergy_project_web_fozmap.mp4",   // optional media block
     poster: asset('images/mwsynergy_project.jpg'),
     caption: "Tunnel section visualisation used for stakeholder reviews.",
   };
