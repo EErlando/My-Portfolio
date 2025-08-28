@@ -2,7 +2,7 @@
 # My Portfolio
 
 [![GitHub Pages](https://img.shields.io/badge/View%20Live-Portfolio-blue?style=for-the-badge)](https://eerlando.github.io/My-Portfolio/#/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://github.com/EErlando/My-Portfolio/blob/main/LICENSE.txt)
 [![GitHub repo size](https://img.shields.io/github/repo-size/EErlando/My-Portfolio?style=for-the-badge)](https://github.com/EErlando/My-Portfolio)
 [![Last Commit](https://img.shields.io/github/last-commit/EErlando/My-Portfolio?style=for-the-badge)](https://github.com/EErlando/My-Portfolio/commits/main)
 ![Hero Preview](public/images/Home.jpg)
