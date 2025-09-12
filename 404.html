@@ -1,13 +1,19 @@
 <!doctype html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <meta charset="utf-8">
+    <title>Redirecting…</title>
+    <meta http-equiv="refresh" content="0; url=/My-Portfolio/">
+    <script>
+      (function () {
+        var l = window.location;
+        var repo = "/My-Portfolio";
+        var path = l.pathname.replace(repo, "");
+        var query = l.search ? l.search.replace(/^\?/, "&") : "";
+        var target = repo + "/?/" + path.replace(/^\//, "") + query + l.hash;
+        l.replace(target);
+      })();
+    </script>
   </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+  <body>Redirecting…</body>
 </html>

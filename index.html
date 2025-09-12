@@ -44,11 +44,26 @@
     <meta name="twitter:description" content="Showcasing projects in AI, Machine Learning, BIM, and Digital Infrastructure." />
     <meta name="twitter:image" content="https://eerlando.github.io/My-Portfolio/images/Home.jpg" />
     <meta name="twitter:site" content="@MaciejWojtkowiak" />
-    
-    <script type="module" crossorigin src="/My-Portfolio/assets/index-Joee3Kua.js"></script>
-    <link rel="stylesheet" crossorigin href="/My-Portfolio/assets/index-KcXYyi0W.css">
+    <script type="module" crossorigin src="/My-Portfolio/assets/index-blwBCGq0.js"></script>
+    <link rel="stylesheet" crossorigin href="/My-Portfolio/assets/index-DGQqZJli.css">
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- GitHub Pages BrowserRouter deep link fix -->
+    <script>
+      (function () {
+        var l = window.location;
+        if (l.search && l.search[1] === "/") {
+          var pieces = l.search.slice(2).split("&");
+          var newPath = "/" + (pieces.shift() || "");
+          var newSearch = pieces.length ? "?" + pieces.join("&") : "";
+          var newUrl = l.origin + "/My-Portfolio" + newPath + newSearch + l.hash;
+          window.history.replaceState(null, "", newUrl);
+        }
+      })();
+    </script>
+
+    <!-- Vite entry script (keep absolute path) -->
   </body>
 </html>
