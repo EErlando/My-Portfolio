@@ -8,7 +8,6 @@
       (function () {
         var l = window.location;
         var repo = "/My-Portfolio";
-        // Redirect /My-Portfolio/path → /My-Portfolio/?/path (preserve query+hash)
         var path = l.pathname.replace(repo, "");
         var query = l.search ? l.search.replace(/^\?/, "&") : "";
         var target = repo + "/?/" + path.replace(/^\//, "") + query + l.hash;
