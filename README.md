@@ -9,7 +9,7 @@
 
 ---
 
-Welcome to my personal portfolio website, built with **React + Vite** and deployed via **GitHub Pages**.  
+Welcome to my personal Portfolio website, built with **React + Vite** and deployed via **GitHub Pages**.  
 It showcases selected work in **Data Science, AI, Machine Learning, and Digital Engineering**.  
 
 🔗 **Live Website**: [My Portfolio](https://eerlando.github.io/My-Portfolio/#/)
