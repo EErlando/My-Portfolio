@@ -1,15 +1,14 @@
-import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-
-
 
 // Builds absolute URLs that work in dev, preview, and GH Pages
 const asset = (p) => {
-  const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
-  const path = String(p).replace(/^\//, '');
+  const base = (import.meta.env.BASE_URL || "/").replace(/\/$/, "");
+  const path = String(p).replace(/^\//, "");
   return `${window.location.origin}${base}/${path}`;
 };
 
+/* --------------------------- HOME --------------------------- */
 function Home() {
   const [showImage, setShowImage] = useState(false);
   const videoRef = useRef();
@@ -25,20 +24,20 @@ function Home() {
 
   // ---- Adjust these ----
   const overlay = "bg-black bg-opacity-10"; // Overlay for both video and image
-  const fadeDuration = 4000; // ms (1.2s)
-  // -----------------------
+  const fadeDuration = 4000; // ms
+  // ----------------------
 
   return (
     <section className="relative min-h-[80vh] w-full flex items-center justify-center overflow-hidden">
       {/* Background image: fades in when showImage is true */}
       <img
-        src={asset('images/Home.jpg')}
+        src={asset("images/Home.jpg")}
         alt="Background"
         className="absolute inset-0 w-full h-full object-cover"
         style={{
           zIndex: 1,
           opacity: showImage ? 1 : 0,
-          transition: `opacity ${fadeDuration}ms`
+          transition: `opacity ${fadeDuration}ms`,
         }}
       />
 
@@ -47,7 +46,7 @@ function Home() {
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
         src="https://res.cloudinary.com/dcxcqzuyo/video/upload/v1756216482/Home_video_web_qgcuqq.mp4"
-        //src={asset('videos/Home_video_web.mp4')}
+        // src={asset('videos/Home_video_web.mp4')}
         autoPlay
         muted
         playsInline
@@ -55,20 +54,23 @@ function Home() {
         style={{
           zIndex: 2,
           opacity: showImage ? 0 : 1,
-          transition: `opacity ${fadeDuration}ms`
+          transition: `opacity ${fadeDuration}ms`,
         }}
-        controls={false} // Explicitly make sure controls are off
-        tabIndex={-1}    // Not focusable
-        disablePictureInPicture // <-- Hides PiP/minimize button
-        controlsList="nodownload nofullscreen noremoteplayback" // Extra: hides other controls
+        controls={false}
+        tabIndex={-1}
+        disablePictureInPicture
+        controlsList="nodownload nofullscreen noremoteplayback"
       />
 
-      {/* Overlay: set opacity in `overlay` variable */}
+      {/* Overlay */}
       <div className={`absolute inset-0 z-[5] pointer-events-none ${overlay}`} />
 
       {/* Hero text content */}
       <div className="relative z-20 flex flex-col items-center justify-center w-full px-4 py-28">
-        <span className="text-blue-600 tracking-widest uppercase font-bold mb-3 text-3xl" style={{ letterSpacing: "0.18em" }}>
+        <span
+          className="text-blue-600 tracking-widest uppercase font-bold mb-3 text-3xl"
+          style={{ letterSpacing: "0.18em" }}
+        >
           WELCOME
         </span>
         <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 text-center leading-tight">
@@ -76,8 +78,11 @@ function Home() {
           for business and infrastructure.
         </h1>
         <p className="text-2xl text-gray-900 text-center mb-12 max-w-4xl">
-          Bridging Data Science, AI, and Digital Engineering for a smarter world.<br />
-          <span className="text-2xl text-gray-900 text-center mb-12 max-w-2xl">(Data, AI, ML, BIM, Infrastructure, Consulting)</span>
+          Bridging Data Science, AI, and Digital Engineering for a smarter world.
+          <br />
+          <span className="text-2xl text-gray-900 text-center mb-12 max-w-2xl">
+            (Data, AI, ML, BIM, Infrastructure, Consulting)
+          </span>
         </p>
         <Link
           to="/projects"
@@ -90,9 +95,10 @@ function Home() {
   );
 }
 
+/* ---------------- LoopedVideoWithFallback (helper) ---------------- */
 function LoopedVideoWithFallback({
   src,
-  poster,              // still image to show after loops
+  poster, // still image to show after loops
   maxLoops = 1,
   fadeMs = 1000,
   className = "",
@@ -180,7 +186,7 @@ function LoopedVideoWithFallback({
           onClick={handleReplay}
           className={`absolute inset-0 flex items-center justify-center rounded-xl
                       bg-black/30 hover:bg-black/40 text-white font-semibold
-                      transition ${hovered ? 'opacity-100' : 'opacity-0'} `}
+                      transition ${hovered ? "opacity-100" : "opacity-0"} `}
           style={{ zIndex: 3, transition: `opacity ${fadeMs}ms ease` }}
           aria-label="Replay"
           title="Replay"
@@ -192,7 +198,7 @@ function LoopedVideoWithFallback({
   );
 }
 
-
+/* --------------------------- PROJECTS --------------------------- */
 function Projects() {
   // You can update color codes for each project below to get just the subtle look you want!
   const projects = [
@@ -202,8 +208,8 @@ function Projects() {
       desc: "Built LLM/NLP workflows for the PRA to detect risk in bank earnings calls. Automated topic modeling, sentiment analysis, and LLM-powered summaries for regulatory supervisors.",
       colorLeft: "bg-[#e5ebf3]",
       colorRight: "bg-[#f5f7fa]",
-      image: asset('images/boe_project.jpg'), // put your real image in public/images/
-      link: "https://github.com/EErlando/Quarterly-Bytes/blob/main/README.md"
+      image: asset("images/boe_project.jpg"), // put your real image in public/images/
+      link: "https://github.com/EErlando/Quarterly-Bytes/blob/main/README.md",
     },
     {
       title: "MW Synergy: London Underground",
@@ -211,21 +217,23 @@ function Projects() {
       desc: "Point cloud modeling and digital visualization for major city infrastructure. Supporting high-speed internet and 4G/5G rollout for TfL.",
       colorLeft: "bg-[#e6f3ec]",
       colorRight: "bg-[#f3f7f5]",
-      image: asset('images/mwsynergy_project.jpg'),
-      //video: asset('videos/mwsynergy_project_web.mp4'), // <-- add this (put the file in public/videos/)
-      video: "https://res.cloudinary.com/dcxcqzuyo/video/upload/v1756219227/mwsynergy_project_web_fozmap.mp4", // <-- add this (link to cloudinary)
-      link: "https://www.installationtechnology.com/case-studies/boldyn-networks"
+      image: asset("images/mwsynergy_project.jpg"),
+      video:
+        "https://res.cloudinary.com/dcxcqzuyo/video/upload/v1756219227/mwsynergy_project_web_fozmap.mp4",
+      link: "https://www.installationtechnology.com/case-studies/boldyn-networks",
     },
     // Add more projects...
   ];
 
   return (
     <section className="bg-[#f8f9fb] min-h-screen py-20 px-4">
-      <h2 className="text-4xl font-extrabold text-gray-900 mb-14 text-center tracking-tight">Projects</h2>
+      <h2 className="text-4xl font-extrabold text-gray-900 mb-14 text-center tracking-tight">
+        Projects
+      </h2>
       <div className="flex flex-col gap-16 max-w-7xl mx-auto">
         {projects.map((proj, idx) => (
-          <div 
-            key={idx} 
+          <div
+            key={idx}
             className="grid grid-cols-1 md:grid-cols-[0.9fr_1.2fr] rounded-2xl overflow-hidden shadow-md"
           >
             {/* LEFT: Text Card */}
@@ -234,7 +242,7 @@ function Projects() {
               <span className="text-xl text-gray-700 font-bold mb-3 block">{proj.subtitle}</span>
               <p className="text-gray-700 text-lg mb-6 text-justify">{proj.desc}</p>
               {proj.link && (
-                <a 
+                <a
                   href={proj.link}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -280,13 +288,14 @@ function Projects() {
   );
 }
 
+/* ---------------- LimitedLoopVideo (helper) ---------------- */
 function LimitedLoopVideo({
   src,
   poster,
-  maxLoops = 2,          // 1) set how many times to play (e.g., 1, 2, 3…)
-  fadeMs = 1000,           // fade duration between video and poster
-  className = "",         // allow external sizing (w-full h-full etc.)
-  showReplay = true,      // 3) show replay button at the end
+  maxLoops = 2,     // how many times to loop before showing poster
+  fadeMs = 1000,    // fade duration in ms
+  className = "",   // additional classes for container
+  showReplay = true,  // show replay button after done
   replayLabel = "▶ Replay",
 }) {
   const videoRef = useRef(null);
@@ -294,7 +303,7 @@ function LimitedLoopVideo({
   const [showPoster, setShowPoster] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
 
-  // Start fresh on mount
+  // Autoplay and reset on src change
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
@@ -305,7 +314,7 @@ function LimitedLoopVideo({
     v.play().catch(() => {});
   }, [src]);
 
-  // Handle natural end of each play
+  // Handle video ended event
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
@@ -390,51 +399,53 @@ function LimitedLoopVideo({
   );
 }
 
+/* --------------------------- MW SYNERGY --------------------------- */
 function MWSynergy() {
-  // ---- Content knobs (easy to edit) ----
   const hero = {
     title: "MW Synergy",
     subtitle: "Digital Engineering for a Smarter World",
-    // video: asset('videos/mwsynergy_hero.mov'),      // optional
-    poster: asset('images/mwsynergy_hero.jpg'),     // fallback / first frame
+    // video: asset('videos/mwsynergy_hero.mov'),
+    poster: asset("images/mwsynergy_hero.jpg"),
   };
 
   const overview = {
     problem:
-      "Deliver resilient 4G/5G connectivity across deep‑level stations and tunnels for Transport for London while coordinating design data at scale.",
+      "Deliver resilient 4G/5G connectivity across deep-level stations and tunnels for Transport for London while coordinating design data at scale.",
     solution:
-      "Point‑cloud modeling, BIM coordination, digital twin visualisations, and construction‑ready documentation integrated with stakeholder workflows.",
+      "Point-cloud modeling, BIM coordination, digital twin visualisations, and construction-ready documentation integrated with stakeholder workflows.",
     impact:
       "Accelerated approvals, reduced site rework, and a repeatable digital delivery approach now used across additional assets and lines.",
   };
 
   const kpis = [
     { label: "Stations & Tunnels", value: "450+" },
-    { label: "Point‑cloud scans", value: "50+TB" },
+    { label: "Point-cloud scans", value: "50+TB" },
     { label: "Design clashes resolved", value: "1,200+" },
     { label: "Approval cycle time", value: "−35%" },
   ];
 
   const role = [
     "BIM Management",
-    "Point‑Cloud to BIM",
+    "Point-Cloud to BIM",
     "Model Validation",
     "Digital Twin Visualisation",
     "Stakeholder Coordination",
   ];
 
-  const tools = ["Bentley CONNECT","Revit", "Navisworks", "Recap", "CloudCompare", "Python", "Power BI"];
-
-  const milestones = [
-    { when: "Q1", what: "Capture & registration of point‑cloud data" },
-    { when: "Q2", what: "Discipline models + clash coordination" },
-    { when: "Q3", what: "Digital twin visualisations & sign‑off packs" },
-    { when: "Q4", what: "Handover, lessons learned, scalable templates" },
+  const tools = [
+    "Bentley CONNECT",
+    "Revit",
+    "Navisworks",
+    "Recap",
+    "CloudCompare",
+    "Python",
+    "Power BI",
   ];
 
   const gallery = {
-    video: "https://res.cloudinary.com/dcxcqzuyo/video/upload/v1756219227/mwsynergy_project_web_fozmap.mp4",   // optional media block
-    poster: asset('images/mwsynergy_project.jpg'),
+    video:
+      "https://res.cloudinary.com/dcxcqzuyo/video/upload/v1756219227/mwsynergy_project_web_fozmap.mp4",
+    poster: asset("images/mwsynergy_project.jpg"),
     caption: "Tunnel section visualisation used for stakeholder reviews.",
   };
 
@@ -454,13 +465,13 @@ function MWSynergy() {
             loop
             muted
             playsInline
-            className="w-full h-[50vh] object-cover" // change md:h-[8vh] to adjust height if the container "w-full h-[20vh] md:h-[60vh] object-cover"
+            className="w-full h-[50vh] object-cover"  
           />
         ) : (
           <img
             src={hero.poster}
             alt="MW Synergy hero"
-            className="w-full h-[50vh] object-cover" // change md:h-[8vh] to adjust height if the container
+            className="w-full h-[50vh] object-cover"
           />
         )}
 
@@ -468,8 +479,10 @@ function MWSynergy() {
         <div className="absolute bottom-6 left-10 z-20">
           <h1 className="text-cyan-200 text-4xl md:text-5xl font-semibold font-orbitron drop-shadow-sm">
             {hero.title}
-            </h1>
-            <p className="text-white/90 text-lg md:text-xl font-semibold mt-2">{hero.subtitle}</p>
+          </h1>
+          <p className="text-white/90 text-lg md:text-xl font-semibold mt-2">
+            {hero.subtitle}
+          </p>
         </div>
       </div>
 
@@ -521,7 +534,7 @@ function MWSynergy() {
             <div className="flex flex-wrap gap-2">
               {tools.map((t) => (
                 <span key={t} className="px-3 py-1 rounded-full bg-gray-100 text-gray-800 text-lg">
-                  {t}
+                {t}
                 </span>
               ))}
             </div>
@@ -536,7 +549,7 @@ function MWSynergy() {
             {gallery.video ? (
               <LimitedLoopVideo
                 src={gallery.video}
-                poster={gallery.poster} 
+                poster={gallery.poster}
                 maxLoops={1}
                 fadeMs={600}
                 className="w-full h-[46vh] md:h-[60vh] rounded-xl overflow-hidden shadow-md"
@@ -555,9 +568,7 @@ function MWSynergy() {
 
       {/* RELATED VIDEOS */}
       <div className="max-w-6xl mx-auto px-4 py-12">
-        <h2 className="text-2xl font-extrabold text-gray-900 mb-8 text-center">
-          Related Videos
-        </h2>
+        <h2 className="text-2xl font-extrabold text-gray-900 mb-8 text-center">Related Videos</h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="aspect-w-16 aspect-h-9">
             <iframe
@@ -611,14 +622,12 @@ function MWSynergy() {
   );
 }
 
-
+/* --------------------------- CONTACT --------------------------- */
 function Contact() {
   return (
     <section className="flex flex-col items-center justify-center py-20 px-4 min-h-[80vh] bg-white">
       <div className="max-w-xl w-full rounded-3xl shadow-md bg-[#f5f7fa] p-10 flex flex-col items-center">
-        <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">
-          Contact
-        </h2>
+        <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">Contact</h2>
         <p className="text-lg text-gray-700 mb-6 text-center">
           Interested in working together or have a question? <br />
           Reach out via LinkedIn, GitHub, or email.
@@ -643,37 +652,33 @@ function Contact() {
         </div>
         <p className="text-gray-500 mb-2">
           <span className="font-semibold">Email:</span>{" "}
-          <a
-            href="mailto:your@email.com"
-            className="text-blue-700 ml-2 hover:underline"
-          >
+          <a href="mailto:macwojtkowiak@gmail.com" className="text-blue-700 ml-2 hover:underline">
             macwojtkowiak@gmail.com
           </a>
         </p>
       </div>
+
       {/* Partners section */}
       <div className="w-full max-w-6xl mt-20 mx-auto">
-        {/* Heading and divider */}
         <div className="flex flex-row items-center gap-8 mb-2 px-2">
           <span className="text-xl font-bold text-gray-800 whitespace-nowrap">Project Partners</span>
         </div>
         <hr className="border-t border-gray-300 mb-6" />
-        {/* Logos centered below line */}
         <div className="flex flex-row gap-10 md:gap-14 items-center justify-center overflow-x-auto pb-2">
           <a href="https://boldyn.com" target="_blank" rel="noopener noreferrer">
-            <img src={asset('images/BDN.png')} alt="Boldyn Networks logo" className="h-16 w-auto object-contain" />
+            <img src={asset("images/BDN.png")} alt="Boldyn Networks logo" className="h-16 w-auto object-contain" />
           </a>
           <a href="https://www.dtcomms.co.uk/" target="_blank" rel="noopener noreferrer">
-            <img src={asset('images/DT.png')} alt="Data Tech logo" className="h-14 w-auto object-contain" />
+            <img src={asset("images/DT.png")} alt="Data Tech logo" className="h-14 w-auto object-contain" />
           </a>
           <a href="https://www.installationtechnology.com/" target="_blank" rel="noopener noreferrer">
-            <img src={asset('images/IT.png')} alt="Installation Technology logo" className="h-14 w-auto object-contain" />
+            <img src={asset("images/IT.png")} alt="Installation Technology logo" className="h-14 w-auto object-contain" />
           </a>
           <a href="https://www.saswireless.com/" target="_blank" rel="noopener noreferrer">
-            <img src={asset('images/SAS.png')} alt="SAS Wireless logo" className="h-14 w-auto object-contain" />
+            <img src={asset("images/SAS.png")} alt="SAS Wireless logo" className="h-14 w-auto object-contain" />
           </a>
           <a href="https://tfl.gov.uk/" target="_blank" rel="noopener noreferrer">
-            <img src={asset('images/TFL.png')} alt="TfL logo" className="h-12 w-auto object-contain" />
+            <img src={asset("images/TFL.png")} alt="TfL logo" className="h-12 w-auto object-contain" />
           </a>
         </div>
       </div>
@@ -681,26 +686,37 @@ function Contact() {
   );
 }
 
+/* --------------------------- APP (with BrowserRouter) --------------------------- */
 function App() {
   return (
-    <Router>
+    <Router basename="/My-Portfolio">
       <nav className="bg-white sticky top-0 z-50 flex justify-between items-center px-8 py-5 shadow">
         <span className="text-2xl font-extrabold tracking-tight text-gray-900">
           MACIEJ WOJTKOWIAK
         </span>
         <div className="flex gap-8">
-          <Link className="text-gray-700 hover:text-blue-700 transition text-lg font-medium" to="/">Home</Link>
-          <Link className="text-gray-700 hover:text-blue-700 transition text-lg font-medium" to="/projects">Projects</Link>
-          <Link className="text-gray-700 hover:text-blue-700 transition text-lg font-medium" to="/mw-synergy">MW Synergy</Link>
-          <Link className="text-gray-700 hover:text-blue-700 transition text-lg font-medium" to="/contact">Contact</Link>
+          <Link className="text-gray-700 hover:text-blue-700 transition text-lg font-medium" to="/">
+            Home
+          </Link>
+          <Link className="text-gray-700 hover:text-blue-700 transition text-lg font-medium" to="/projects">
+            Projects
+          </Link>
+          <Link className="text-gray-700 hover:text-blue-700 transition text-lg font-medium" to="/mw-synergy">
+            MW Synergy
+          </Link>
+          <Link className="text-gray-700 hover:text-blue-700 transition text-lg font-medium" to="/contact">
+            Contact
+          </Link>
         </div>
       </nav>
-      
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/mw-synergy" element={<MWSynergy />} />
         <Route path="/contact" element={<Contact />} />
+        {/* Optional 404 route */}
+        <Route path="*" element={<Home />} />
       </Routes>
     </Router>
   );
